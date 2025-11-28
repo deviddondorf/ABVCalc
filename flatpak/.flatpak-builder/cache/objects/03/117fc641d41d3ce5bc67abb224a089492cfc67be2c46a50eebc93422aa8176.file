@@ -1,4 +1,0 @@
-#!/bin/sh
-export PYTHONPATH=/app/lib/python3.11/site-packages
-exec python3 /app/share/abv-calculator/main.py
-

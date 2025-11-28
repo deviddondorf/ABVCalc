@@ -1,5 +1,0 @@
-[Runtime]
-name=io.github.deviddondorf.AbvCalculator.Debug
-
-[ExtensionOf]
-ref=app/io.github.deviddondorf.AbvCalculator/x86_64/master
