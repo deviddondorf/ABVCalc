@@ -375,7 +375,7 @@ color: rgb(230, 97, 0);</string>
           </font>
          </property>
          <property name="text">
-          <string>Made by Devid Dondorf                           v.0.0.2 dev-Build: &quot;Magdeburg&quot;</string>
+          <string>Made by Devid Dondorf                           v.1: &quot;Karlsruhe&quot;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
