@@ -5,34 +5,44 @@
   "sdk": "org.kde.Sdk",
   "command": "abv-calculator",
   "finish-args": [
+    "--share=network",
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
-    "--env=ABV_DATA=/app/share/abv-calculator"
+    "--env=ABV_DATA=/app/share/abv-calculator",
+    "--env=PYTHONPATH=/app/lib/python3.11/site-packages"
   ],
+  "build-options": {
+    "build-args": [
+      "--share=network"
+    ]
+  },
   "modules": [
     {
       "name": "python-deps",
       "buildsystem": "simple",
       "build-commands": [
-        "pip3 install --prefix=/app -r requirements.txt"
+        "python3 -m pip install --no-cache-dir --prefix=/app PySide6==6.7.3",
+        "mkdir -p /app/lib/python3.11/site-packages/PySide6/Qt/plugins",
+        "cp -r $FLATPAK_SDK/lib/qt6/plugins/platforms /app/lib/python3.11/site-packages/PySide6/Qt/plugins/",
+        "cp -r $FLATPAK_SDK/lib/qt6/plugins/iconengines /app/lib/python3.11/site-packages/PySide6/Qt/plugins/",
+        "cp -r $FLATPAK_SDK/lib/qt6/plugins/imageformats /app/lib/python3.11/site-packages/PySide6/Qt/plugins/",
+        "cp -r $FLATPAK_SDK/lib/qt6/plugins/styles /app/lib/python3.11/site-packages/PySide6/Qt/plugins/",
+        "cp -r $FLATPAK_SDK/lib/qt6/plugins/platformthemes /app/lib/python3.11/site-packages/PySide6/Qt/plugins/"
       ],
-      "sources": [
-        { "type": "file", "path": "../src/requirements.txt" }
-      ]
+      "sources": []
     },
     {
       "name": "abv-calculator",
       "buildsystem": "simple",
       "build-commands": [
-    	"ls -R",
-    	"install -Dm755 main-launcher.sh /app/bin/abv-calculator",
-    	"mkdir -p /app/share/abv-calculator",
-    	"cp -r main.py ui /app/share/abv-calculator/",
-    	"install -Dm644 io.github.deviddondorf.AbvCalculator.desktop /app/share/applications/io.github.deviddondorf.AbvCalculator.desktop",
-    	"install -Dm644 io.github.deviddondorf.AbvCalculator.metainfo.xml /app/share/metainfo/io.github.deviddondorf.AbvCalculator.metainfo.xml",
-    	"install -Dm644 icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png /app/share/icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png"
-	],
+        "install -Dm755 main-launcher.sh /app/bin/abv-calculator",
+        "mkdir -p /app/share/abv-calculator",
+        "cp -r main.py ui /app/share/abv-calculator/",
+        "install -Dm644 io.github.deviddondorf.AbvCalculator.desktop /app/share/applications/io.github.deviddondorf.AbvCalculator.desktop",
+        "install -Dm644 io.github.deviddondorf.AbvCalculator.metainfo.xml /app/share/metainfo/io.github.deviddondorf.AbvCalculator.metainfo.xml",
+        "install -Dm644 icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png /app/share/icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png"
+      ],
       "sources": [
         { "type": "dir", "path": "../src" },
         { "type": "file", "path": "main-launcher.sh" },
@@ -43,4 +53,3 @@
     }
   ]
 }
-
