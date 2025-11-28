@@ -18,34 +18,27 @@
         "pip3 install --prefix=/app -r requirements.txt"
       ],
       "sources": [
-        {
-          "type": "file",
-          "path": "../src/requirements.txt"
-        }
+        { "type": "file", "path": "../src/requirements.txt" }
       ]
     },
     {
       "name": "abv-calculator",
       "buildsystem": "simple",
       "build-commands": [
-        "install -Dm755 main-launcher.sh /app/bin/abv-calculator",
-
-        "install -Dm644 main.py /app/share/abv-calculator/main.py",
-        "install -Dm644 src/ABVCalculator.ui /app/share/abv-calculator/ABVCalculator.ui",
-
-        "install -Dm644 ../flatpak/io.github.deviddondorf.AbvCalculator.desktop /app/share/applications/io.github.deviddondorf.AbvCalculator.desktop",
-        "install -Dm644 ../flatpak/io.github.deviddondorf.AbvCalculator.metainfo.xml /app/share/metainfo/io.github.deviddondorf.AbvCalculator.metainfo.xml",
-        "install -Dm644 ../flatpak/icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png /app/share/icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png"
-      ],
+    	"ls -R",
+    	"install -Dm755 main-launcher.sh /app/bin/abv-calculator",
+    	"mkdir -p /app/share/abv-calculator",
+    	"cp -r main.py ui /app/share/abv-calculator/",
+    	"install -Dm644 io.github.deviddondorf.AbvCalculator.desktop /app/share/applications/io.github.deviddondorf.AbvCalculator.desktop",
+    	"install -Dm644 io.github.deviddondorf.AbvCalculator.metainfo.xml /app/share/metainfo/io.github.deviddondorf.AbvCalculator.metainfo.xml",
+    	"install -Dm644 icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png /app/share/icons/hicolor/256x256/apps/io.github.deviddondorf.AbvCalculator.png"
+	],
       "sources": [
-        {
-          "type": "dir",
-          "path": "../src"
-        },
-        {
-          "type": "file",
-          "path": "main-launcher.sh"
-        }
+        { "type": "dir", "path": "../src" },
+        { "type": "file", "path": "main-launcher.sh" },
+        { "type": "file", "path": "io.github.deviddondorf.AbvCalculator.desktop" },
+        { "type": "file", "path": "io.github.deviddondorf.AbvCalculator.metainfo.xml" },
+        { "type": "dir", "path": "icons" }
       ]
     }
   ]

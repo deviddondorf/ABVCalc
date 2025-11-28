@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.deviddondorf.AbvCalculator</id>
+  <name>ABV Calculator</name>
+  <summary>Calculate Alcohol By Volume</summary>
+  <description>
+    <p>A simple calculator to compute Alcohol By Volume.</p>
+  </description>
+  <developer_name>devid-dondorf</developer_name>
+  <license>GPL-3.0-or-later</license>
+  <releases>
+    <release version="1.0.0" date="2025-01-01"/>
+  </releases>
+</component>
+
