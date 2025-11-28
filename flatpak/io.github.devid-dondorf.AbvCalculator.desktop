@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=D-ABV Calculator
+Comment=Calculate Alcohol By Volume
+Exec=abv-calculator
+Icon=io.github.devid-dondorf.AbvCalculator
+Terminal=false
+Categories=Utility;
+

@@ -3,10 +3,11 @@ from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import QDoubleValidator
 import os
+import sys
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UI_PATH = os.path.join(BASE_DIR, "ABVCalculator.ui")
+BASE_DIR = os.environ.get("ABV_DATA", os.path.dirname(os.path.abspath(__file__)))
+UI_PATH = os.path.join(BASE_DIR, "ui", "ABVCalculator.ui")
 
 app = QApplication([])
 vali = QDoubleValidator()
